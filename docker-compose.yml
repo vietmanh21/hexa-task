@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: manhnv2
+      MONGO_INITDB_ROOT_PASSWORD: manhnv2
+    volumes:
+      - /Users/vietmanh21/volumes/hexa-task:/data/db
+    ports:
+      - "27018:27017"
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+networks:
+  hexa-task:
+    name: hexa-task
