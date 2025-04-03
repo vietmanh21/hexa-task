@@ -1,7 +1,9 @@
 package com.manhnv.hexatask.controller;
 
 import com.manhnv.hexatask.dto.request.ResetPasswordRequest;
+import com.manhnv.hexatask.dto.request.SignUpRequest;
 import com.manhnv.hexatask.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,5 +21,10 @@ public class UserController {
     public ResponseEntity<?> resetPassword(@RequestBody ResetPasswordRequest request) {
         userService.sendMailResetPassword(request.getEmail());
         return ResponseEntity.ok("Password reset link sent to your email.");
+    }
+
+    @PostMapping("/sign-up")
+    public ResponseEntity<?> signUp(@Valid @RequestBody SignUpRequest request) {
+        return ResponseEntity.ok(userService.signUp(request));
     }
 }
