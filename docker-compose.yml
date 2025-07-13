@@ -9,7 +9,7 @@ services:
     volumes:
       - /Users/vietmanh21/volumes/hexa-task:/data/db
     ports:
-      - "27018:27017"
+      - "27016:27017"
   redis:
     image: redis:latest
     ports:
